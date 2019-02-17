@@ -18,5 +18,17 @@ namespace ACME.Maintenance.Domain
             var order = new Order { OrderId = Guid.NewGuid().ToString(), Status = OrderStatus.New };
             return order;
         }
+
+        public OrderItem CreateOrderItem(Part part, int quantity)
+        {
+            var orderItem = new OrderItem
+            {
+                Part = part,
+                Quantity = quantity,
+                Price = part.Price,
+                LineTotal = quantity * part.Price
+            };
+            return orderItem;
+        }
     }
 }
