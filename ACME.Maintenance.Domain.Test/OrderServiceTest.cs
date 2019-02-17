@@ -83,7 +83,7 @@ namespace ACME.Maintenance.Domain.Test
             //Assert.AreEqual(newOrder.OrderId, OrderId);
 
             Assert.AreEqual(newOrder.Status, OrderStatus.New);
-            Assert.IsInstanceOfType(newOrder.OrderItems, typeof(List<OrderItem>));
+            Assert.IsInstanceOfType(newOrder.Items, typeof(IReadOnlyList<OrderItem>));
 
         }
 

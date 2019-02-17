@@ -13,7 +13,7 @@ namespace ACME.Maintenance.Domain.Test
         }
 
         [TestMethod]
-        public void Test()
+        public void AddOrderItem_ValidOrderItem_AddsOrderItem()
         {
             var orderService = new OrderService();
 
@@ -40,6 +40,10 @@ namespace ACME.Maintenance.Domain.Test
             };
 
             order.AddOrderItem(orderItem);
+
+            // Assert
+            Assert.AreEqual(order.OrderItemCount, 1);
+            Assert.AreEqual(order.Subtotal, 50.0);
         }
     }
 }
